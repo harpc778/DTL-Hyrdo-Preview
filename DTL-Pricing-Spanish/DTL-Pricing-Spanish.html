@@ -330,6 +330,52 @@ table.data-table td a:hover{color:var(--water);text-decoration:underline;}
 .simple-gallery .photo img{width:100%;height:100%;object-fit:cover;}
 .simple-gallery figcaption{padding:14px 16px;font-size:.86rem;color:var(--steel);}
 
+/* ---------- about page ---------- */
+.leadership{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:40px;}
+@media(max-width:760px){.leadership{grid-template-columns:1fr;}}
+.lead-card{background:var(--white);border:1px solid var(--line);padding:32px;}
+.lead-card .role{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);margin-bottom:10px;}
+.lead-card h3{font-size:1.3rem;margin-bottom:14px;}
+.lead-card p{color:var(--steel);font-size:.96rem;margin:0;}
+
+.qa-block{border-top:1px solid var(--line);padding:30px 0;}
+.qa-block:first-of-type{border-top:none;}
+.qa-block .q{font-family:'Oswald',sans-serif;font-size:1.15rem;text-transform:none;letter-spacing:0;color:var(--ink);margin-bottom:10px;display:flex;gap:14px;align-items:baseline;}
+.qa-block .q .qmark{font-family:'JetBrains Mono',monospace;color:var(--brass);font-weight:700;font-size:1rem;flex-shrink:0;}
+.qa-block .a{color:#2C3E4A;font-size:.98rem;margin:0;padding-left:30px;}
+
+.package-list{list-style:none;margin:26px 0 0;padding:0;counter-reset:pkg;}
+.package-list li{
+  counter-increment:pkg;
+  display:flex;align-items:center;gap:18px;
+  padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1);
+  font-family:'JetBrains Mono',monospace;font-size:.92rem;color:#E4E9EC;
+}
+.package-list li:last-child{border-bottom:none;}
+.package-list li::before{
+  content:counter(pkg,decimal-leading-zero);
+  color:var(--brass-light);font-weight:700;font-size:.85rem;flex-shrink:0;width:28px;
+}
+.arrow-sep{color:var(--brass);margin:0 8px;}
+
+.fact-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-top:44px;border:1px solid var(--line);}
+.fact-strip .fact{background:var(--white);padding:26px 22px;}
+.fact-strip .fact label{display:block;font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);margin-bottom:8px;}
+.fact-strip .fact .val{font-family:'Oswald',sans-serif;font-size:1.15rem;color:var(--ink);}
+@media(max-width:820px){.fact-strip{grid-template-columns:repeat(2,1fr);}}
+
+/* ---------- terms / legal page ---------- */
+.legal-layout{display:grid;grid-template-columns:240px 1fr;gap:64px;align-items:start;}
+@media(max-width:900px){.legal-layout{grid-template-columns:1fr;}}
+.legal h2{font-size:1.3rem;margin:46px 0 16px;color:var(--ink);}
+.legal h2:first-child{margin-top:0;}
+.legal p{color:#2C3E4A;margin:0 0 16px;font-size:.98rem;}
+.legal ul{color:#2C3E4A;padding-left:20px;margin:0 0 16px;}
+.legal ul li{margin-bottom:8px;}
+.legal a.inline-link{color:var(--brass);text-decoration:underline;text-underline-offset:2px;}
+.legal a.inline-link:hover{color:var(--water);}
+.section-num{font-family:'JetBrains Mono',monospace;color:var(--brass);font-weight:700;margin-right:10px;}
+
 </style>
 </head>
 <body>
@@ -345,6 +391,7 @@ table.data-table td a:hover{color:var(--water);text-decoration:underline;}
       <a href="../index.html" >Home</a>
       <a href="../products.htm" class="active">Products</a>
       <a href="../projects.htm" >Projects</a>
+      <a href="../about.htm" >Company</a>
       <a href="../micro-hydro-generator.htm" >Resources</a>
       <a href="../contact.htm" >Contact</a>
       <a href="../pricing.htm" class="btn-nav">Request Pricing</a>
@@ -357,6 +404,7 @@ table.data-table td a:hover{color:var(--water);text-decoration:underline;}
     <a href="../index.html" >Home</a>
     <a href="../products.htm" class="active">Products</a>
     <a href="../projects.htm" >Projects</a>
+    <a href="../about.htm" >Company</a>
     <a href="../micro-hydro-generator.htm" >Resources</a>
     <a href="../contact.htm" >Contact</a>
     <a href="../pricing.htm" class="mobile-btn">Request Pricing</a>
@@ -479,7 +527,7 @@ table.data-table td a:hover{color:var(--water);text-decoration:underline;}
     </div>
     <div>
       <h4>Site</h4>
-      <p><a href="../index.html">Home</a><br><a href="../products.htm">Products</a><br><a href="../projects.htm">Projects</a><br><a href="../micro-hydro-generator.htm">Resources</a><br><a href="../contact.htm">Contact</a></p>
+      <p><a href="../index.html">Home</a><br><a href="../products.htm">Products</a><br><a href="../projects.htm">Projects</a><br><a href="../about.htm">Company</a><br><a href="../micro-hydro-generator.htm">Resources</a><br><a href="../contact.htm">Contact</a></p>
     </div>
     <div>
       <h4>Contact</h4>
@@ -488,7 +536,7 @@ table.data-table td a:hover{color:var(--water);text-decoration:underline;}
   </div>
   <div class="foot-bottom">
     <span>&copy; 2026 Dependable Turbines Ltd. All rights reserved.</span>
-    <span><a href="../pricing-Spanish.htm">Formulario de precios en Espa&ntilde;ol</a></span>
+    <span><a href="../terms.htm">Terms &amp; Privacy</a> &middot; <a href="../pricing-Spanish.htm">Formulario de precios en Espa&ntilde;ol</a></span>
   </div>
 </footer>
 
