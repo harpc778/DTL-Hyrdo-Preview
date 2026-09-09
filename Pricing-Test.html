@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Budget Pricing Request — Dependable Turbines Ltd.</title>
+<style>
+  body{font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#222; margin:0; padding:20px; background:#fff;}
+  .intro{max-width:760px; margin:0 0 24px;}
+  .intro p{line-height:1.55;}
+  form{max-width:760px;}
+  fieldset{border:1px solid #ccc; margin:0 0 26px; padding:18px 20px 20px;}
+  legend{font-weight:bold; padding:0 8px; color:#800080;}
+  .field{margin-bottom:14px;}
+  .field label{display:block; font-weight:bold; margin-bottom:4px;}
+  .field .hint{font-weight:normal; color:#666; font-size:.85em; margin-top:3px;}
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="tel"],
+  .field input[type="number"],
+  .field select,
+  .field textarea{
+    width:100%; max-width:400px; padding:6px 8px; font-family:Arial, Helvetica, sans-serif;
+    font-size:14px; border:1px solid #999; box-sizing:border-box;
+  }
+  .field textarea{max-width:600px;}
+  .required{color:#a83232; font-weight:normal;}
+  .two-up{display:flex; gap:20px; flex-wrap:wrap;}
+  .two-up .field{flex:1 1 260px;}
+  button[type="submit"]{
+    background:#800080; color:#fff; border:none; padding:12px 28px; font-size:15px;
+    cursor:pointer; font-weight:bold; border-radius:2px;
+  }
+  button[type="submit"]:hover{background:#660066;}
+  button[type="submit"]:disabled{background:#b389b3; cursor:default;}
+  .form-error{display:none; color:#a83232; margin-top:14px;}
+  .form-error.is-visible{display:block;}
+  .form-status{display:none; text-align:center; padding:30px 10px;}
+  .form-status.is-visible{display:block;}
+  .form-status h2{color:#800080;}
+
+  /* ---------- mobile ---------- */
+  @media (max-width: 600px){
+    body{padding:14px;}
+    .intro h1{font-size:1.4rem;}
+    fieldset{padding:14px 14px 16px; margin-bottom:18px;}
+    legend{font-size:.95rem;}
+    /* stack two-column rows into one column, full width */
+    .two-up{flex-direction:column; gap:0;}
+    .two-up .field{flex:1 1 auto; width:100%;}
+    /* 16px stops iOS Safari auto-zooming on focus; taller targets are easier to tap */
+    .field input[type="text"],
+    .field input[type="email"],
+    .field input[type="tel"],
+    .field input[type="number"],
+    .field select,
+    .field textarea{
+      font-size:16px; max-width:none; width:100%; padding:11px 10px; min-height:44px;
+    }
+    .field select{ -webkit-appearance:none; appearance:none; background-position:right 10px center; }
+    button[type="submit"]{
+      width:100%; padding:15px 20px; font-size:16px; min-height:48px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="intro">
+  <h1>Information Required for Budget Pricing</h1>
+  <p>With respect to specifications and prices, we design our systems to each specific site in order to utilize the potential energy efficiently. Therefore, the following information is required in order to provide specifications and budget prices.</p>
+</div>
+
+<div id="dtl-pricing-form-wrap">
+<form id="dtl-pricing-form" action="https://formspree.io/f/mqpkggje" method="POST">
+
+  <fieldset>
+    <legend>Contact Information</legend>
+
+    <div class="two-up">
+      <div class="field">
+        <label for="p_name">Name <span class="required">*</span></label>
+        <input id="p_name" name="name" required type="text" />
+      </div>
+      <div class="field">
+        <label for="p_company">Company <span class="required">*</span></label>
+        <input id="p_company" name="company" required type="text" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="p_city_country">City / Country <span class="required">*</span></label>
+      <input id="p_city_country" name="city_country" required type="text" />
+    </div>
+
+    <div class="two-up">
+      <div class="field">
+        <label for="p_phone">Phone <span class="required">*</span></label>
+        <input id="p_phone" name="phone" required type="tel" />
+      </div>
+      <div class="field">
+        <label for="p_fax">FAX</label>
+        <input id="p_fax" name="fax" type="tel" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="p_email">Email <span class="required">*</span></label>
+      <input id="p_email" name="email" required type="email" />
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Site Information</legend>
+    <p class="hint" style="margin-top:-6px;">Please provide the following site information, or enter "unknown" or "N/A".</p>
+
+    <div class="field">
+      <label for="p_site_location">Site Location or Name <span class="required">*</span></label>
+      <input id="p_site_location" name="site_location" required type="text" />
+    </div>
+
+    <div class="field">
+      <label for="p_reservoir">Reservoir at Intake (m&sup3;)</label>
+      <input id="p_reservoir" name="reservoir_intake" type="text" />
+    </div>
+
+    <div class="two-up">
+      <div class="field">
+        <label for="p_gross_head">Gross Head <span class="required">*</span></label>
+        <input id="p_gross_head" name="gross_head" required type="text" />
+      </div>
+      <div class="field">
+        <label for="p_net_head">Net Head at Design Flow (m) <span class="required">*</span></label>
+        <input id="p_net_head" name="net_head" required type="text" />
+      </div>
+    </div>
+
+    <div class="two-up">
+      <div class="field">
+        <label for="p_design_flow">Design Flow</label>
+        <input id="p_design_flow" name="design_flow" type="number" step="any" />
+        <div class="hint">Must be a number.</div>
+      </div>
+      <div class="field">
+        <label for="p_flow_unit">Flow Unit</label>
+        <select id="p_flow_unit" name="flow_unit">
+          <option value="">-- Select --</option>
+          <option value="l/s">l/s</option>
+          <option value="m3/s">m&sup3;/s</option>
+        </select>
+        <div class="hint">Select either litres per second or cubic metres per second.</div>
+      </div>
+    </div>
+
+    <div class="two-up">
+      <div class="field">
+        <label for="p_low_flow">Low Flow <span class="required">*</span></label>
+        <input id="p_low_flow" name="low_flow" required type="text" />
+      </div>
+      <div class="field">
+        <label for="p_average_flow">Average Flow</label>
+        <input id="p_average_flow" name="average_flow" type="text" />
+      </div>
+    </div>
+
+    <div class="two-up">
+      <div class="field">
+        <label for="p_penstock_length">Penstock Length (m) <span class="required">*</span></label>
+        <input id="p_penstock_length" name="penstock_length" required type="text" />
+      </div>
+      <div class="field">
+        <label for="p_penstock_diameter">Penstock Inside Diameter</label>
+        <input id="p_penstock_diameter" name="penstock_diameter" type="text" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="p_penstock_material">Penstock Material</label>
+      <input id="p_penstock_material" name="penstock_material" type="text" />
+    </div>
+
+    <div class="two-up">
+      <div class="field">
+        <label for="p_elevation">Powerhouse Elevation Above Sea Level (m)</label>
+        <input id="p_elevation" name="powerhouse_elevation" type="text" />
+      </div>
+      <div class="field">
+        <label for="p_power_line">Power Line Length (m)</label>
+        <input id="p_power_line" name="power_line_length" type="text" />
+      </div>
+    </div>
+
+    <div class="two-up">
+      <div class="field">
+        <label for="p_expected_output">Expected Output (kW) <span class="required">*</span></label>
+        <input id="p_expected_output" name="expected_output" required type="text" />
+      </div>
+      <div class="field">
+        <label for="p_num_turbines">Number of Turbines</label>
+        <input id="p_num_turbines" name="num_turbines" type="text" />
+      </div>
+    </div>
+
+    <div class="two-up">
+      <div class="field">
+        <label for="p_generator_type">Generator Type</label>
+        <select id="p_generator_type" name="generator_type">
+          <option value="">-- Select --</option>
+          <option value="Synchronous">Synchronous</option>
+          <option value="Induction">Induction</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="p_phase">Phase</label>
+        <select id="p_phase" name="phase">
+          <option value="">-- Select --</option>
+          <option value="Single Phase">Single Phase</option>
+          <option value="Three Phase">Three Phase</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="two-up">
+      <div class="field">
+        <label for="p_frequency">Frequency</label>
+        <select id="p_frequency" name="frequency">
+          <option value="">-- Select --</option>
+          <option value="50 Hz">50 Hz</option>
+          <option value="60 Hz">60 Hz</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="p_control_method">Control Method Desired</label>
+        <select id="p_control_method" name="control_method">
+          <option value="">-- Select --</option>
+          <option value="Automatic">Automatic</option>
+          <option value="Manual">Manual</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="two-up">
+      <div class="field">
+        <label for="p_utility_connected">Connected to Utility Power?</label>
+        <select id="p_utility_connected" name="utility_connected">
+          <option value="">-- Select --</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="p_utility_voltage">Utility Voltage (number)</label>
+        <input id="p_utility_voltage" name="utility_voltage" type="number" step="any" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="p_comments">Comments</label>
+      <textarea id="p_comments" name="comments" rows="5"></textarea>
+    </div>
+  </fieldset>
+
+  <input autocomplete="off" name="_gotcha" style="display:none" tabindex="-1" type="text" />
+  <input name="_subject" type="hidden" value="New pricing request - DTL pricing form" />
+
+  <button id="dtl-pricing-submit" type="submit">Submit Pricing Request</button>
+  <p class="form-error" id="dtl-pricing-error">Something went wrong sending your request — please try again, or email us directly at sales@dtlhydro.com.</p>
+</form>
+</div>
+
+<div class="form-status" id="dtl-pricing-status">
+  <h2>Request received.</h2>
+  <p>Thanks for the details — we'll review your site information and follow up with budget specifications and pricing within one business day.</p>
+</div>
+
+<script>
+(function(){
+  var form = document.getElementById('dtl-pricing-form');
+  var wrap = document.getElementById('dtl-pricing-form-wrap');
+  var status = document.getElementById('dtl-pricing-status');
+  var errorEl = document.getElementById('dtl-pricing-error');
+  var submitBtn = document.getElementById('dtl-pricing-submit');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errorEl.classList.remove('is-visible');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function(response){
+      if (response.ok) {
+        wrap.style.display = 'none';
+        status.classList.add('is-visible');
+      } else {
+        errorEl.classList.add('is-visible');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Pricing Request';
+      }
+    }).catch(function(){
+      errorEl.classList.add('is-visible');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Pricing Request';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -364,6 +364,23 @@ table.data-table td a:hover{color:var(--water);text-decoration:underline;}
 .fact-strip .fact .val{font-family:'Oswald',sans-serif;font-size:1.15rem;color:var(--ink);}
 @media(max-width:820px){.fact-strip{grid-template-columns:repeat(2,1fr);}}
 
+/* ---------- contact form success state ---------- */
+.form-status{display:none;text-align:center;padding:36px 10px 10px;}
+.form-status.is-visible{display:block;}
+.form-status .check{
+  width:56px;height:56px;margin:0 auto 22px;border:2px solid var(--brass);
+  display:flex;align-items:center;justify-content:center;color:var(--brass);font-size:1.5rem;
+}
+.form-status h4{font-size:1.3rem;margin-bottom:12px;}
+.form-status p{color:var(--steel);font-size:.95rem;max-width:340px;margin:0 auto 24px;}
+.form-status button{
+  font-family:'JetBrains Mono',monospace;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;
+  background:none;border:1px solid var(--ink);color:var(--ink);padding:11px 20px;cursor:pointer;transition:.15s;
+}
+.form-status button:hover{background:var(--ink);color:var(--white);}
+.form-error{display:none;color:#a83232;font-size:.86rem;margin-top:14px;}
+.form-error.is-visible{display:block;}
+
 /* ---------- terms / legal page ---------- */
 .legal-layout{display:grid;grid-template-columns:240px 1fr;gap:64px;align-items:start;}
 @media(max-width:900px){.legal-layout{grid-template-columns:1fr;}}
@@ -451,25 +468,88 @@ table.data-table td a:hover{color:var(--water);text-decoration:underline;}
       </div>
 
       <div class="form-card">
-        <h3 style="font-size:1.1rem;margin-bottom:22px;">Send a Project Inquiry</h3>
-        <div class="two-field">
-          <div class="form-row"><label>Full Name</label><input type="text" placeholder="Jane Smith"></div>
-          <div class="form-row"><label>Company</label><input type="text" placeholder="Optional"></div>
+        <div id="dtl-form-wrap">
+          <h3 style="font-size:1.1rem;margin-bottom:22px;">Send a Project Inquiry</h3>
+          <form id="dtl-contact-form" action="https://formspree.io/f/moeqqzvd" method="POST">
+            <div class="two-field">
+              <div class="form-row"><label>Full Name</label><input type="text" name="name" placeholder="Jane Smith" required></div>
+              <div class="form-row"><label>Company</label><input type="text" name="company" placeholder="Optional"></div>
+            </div>
+            <div class="two-field">
+              <div class="form-row"><label>Email</label><input type="email" name="email" placeholder="jane@company.com" required></div>
+              <div class="form-row"><label>Phone</label><input type="tel" name="phone" placeholder="Optional"></div>
+            </div>
+            <div class="form-row">
+              <label>Site Head / Flow (if known)</label>
+              <input type="text" name="head_flow" placeholder="e.g. 45m head, 0.3 m&sup3;/s flow">
+            </div>
+            <div class="form-row">
+              <label>Project Details</label>
+              <textarea rows="5" name="message" placeholder="Tell us about your site, timeline, and power needs..." required></textarea>
+            </div>
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="_subject" value="New project inquiry — DTL contact form">
+            <button type="submit" id="dtl-submit-btn" class="btn btn-solid" style="width:100%;justify-content:center;border:1px solid var(--brass);cursor:pointer;">Submit Inquiry &rarr;</button>
+            <p class="form-error" id="dtl-form-error">Something went wrong sending your message — please try again, or email us directly at sales@dtlhydro.com.</p>
+          </form>
         </div>
-        <div class="two-field">
-          <div class="form-row"><label>Email</label><input type="email" placeholder="jane@company.com"></div>
-          <div class="form-row"><label>Phone</label><input type="tel" placeholder="Optional"></div>
+
+        <div class="form-status" id="dtl-form-status">
+          <div class="check">&#10003;</div>
+          <h4>Message sent.</h4>
+          <p>Thanks for reaching out — we'll be in touch within one business day, usually sooner.</p>
+          <button type="button" id="dtl-send-another">Send Another Message</button>
         </div>
-        <div class="form-row">
-          <label>Site Head / Flow (if known)</label>
-          <input type="text" placeholder="e.g. 45m head, 0.3 m&sup3;/s flow">
-        </div>
-        <div class="form-row">
-          <label>Project Details</label>
-          <textarea rows="5" placeholder="Tell us about your site, timeline, and power needs..."></textarea>
-        </div>
-        <a href="#" class="btn btn-solid" style="width:100%;justify-content:center;">Submit Inquiry &rarr;</a>
       </div>
+
+      <script>
+      (function(){
+        var form = document.getElementById('dtl-contact-form');
+        var wrap = document.getElementById('dtl-form-wrap');
+        var status = document.getElementById('dtl-form-status');
+        var errorEl = document.getElementById('dtl-form-error');
+        var submitBtn = document.getElementById('dtl-submit-btn');
+        var againBtn = document.getElementById('dtl-send-another');
+
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          errorEl.classList.remove('is-visible');
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending…';
+
+          fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          }).then(function(response){
+            if (response.ok) {
+              wrap.style.display = 'none';
+              status.classList.add('is-visible');
+            } else {
+              response.json().then(function(data){
+                errorEl.classList.add('is-visible');
+              }).catch(function(){
+                errorEl.classList.add('is-visible');
+              });
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = 'Submit Inquiry &rarr;';
+            }
+          }).catch(function(){
+            errorEl.classList.add('is-visible');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Submit Inquiry &rarr;';
+          });
+        });
+
+        againBtn.addEventListener('click', function(){
+          form.reset();
+          status.classList.remove('is-visible');
+          wrap.style.display = '';
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Submit Inquiry &rarr;';
+        });
+      })();
+      </script>
 
     </div>
   </div>
