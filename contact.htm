@@ -254,19 +254,8 @@ footer a:hover{color:var(--brass);}
 .info-row .val{font-size:1rem;color:var(--ink);}
 .mapcard{
   margin-top:26px;aspect-ratio:16/10;background:var(--ink);position:relative;overflow:hidden;
-  background-image:
-    repeating-linear-gradient(0deg, rgba(181,101,47,.14) 0 1px, transparent 1px 42px),
-    repeating-linear-gradient(90deg, rgba(181,101,47,.14) 0 1px, transparent 1px 42px);
 }
-.mapcard .pin{
-  position:absolute;top:44%;left:52%;width:16px;height:16px;background:var(--brass);border-radius:50% 50% 50% 0;
-  transform:rotate(-45deg) translate(-50%,-50%);
-}
-.mapcard .pin::after{content:"";position:absolute;inset:4px;background:var(--ink);border-radius:50%;}
-.mapcard .label{
-  position:absolute;bottom:16px;left:16px;color:#fff;font-family:'JetBrains Mono',monospace;font-size:.7rem;
-  letter-spacing:.08em;text-transform:uppercase;background:rgba(34,48,59,.7);padding:8px 12px;border:1px solid rgba(181,101,47,.5);
-}
+.mapcard iframe{width:100%;height:100%;border:0;display:block;}
 .form-card{background:var(--white);border:1px solid var(--line);padding:36px;}
 .form-row{margin-bottom:20px;}
 .form-row label{display:block;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);margin-bottom:8px;}
@@ -461,8 +450,7 @@ table.data-table td a:hover{color:var(--water);text-decoration:underline;}
         </div>
 
         <div class="mapcard">
-          <div class="pin"></div>
-          <div class="label">Surrey, British Columbia, Canada</div>
+          <iframe src="https://www.google.com/maps?q=17930+Roan+Place,+Surrey,+BC+V3S+5K1,+Canada&amp;output=embed" title="Dependable Turbines Ltd. location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         </div>
         <p style="margin-top:22px;color:var(--steel);font-size:.92rem;">Need a full technical quote instead? Use our <a href="pricing.htm" style="color:var(--brass);font-weight:600;">pricing request form</a> (<a href="pricing-Spanish.htm" style="color:var(--brass);font-weight:600;">formulario en espa&ntilde;ol</a>).</p>
       </div>
