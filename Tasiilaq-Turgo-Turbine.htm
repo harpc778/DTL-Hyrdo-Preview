@@ -84,6 +84,9 @@ header.site{
   transform:rotate(45deg);flex-shrink:0;
 }
 .brand-mark span{transform:rotate(-45deg);}
+.brand-logo{height:58px;width:auto;display:block;}
+.brand-logo-foot{height:50px;mix-blend-mode:multiply;}
+@media(max-width:760px){.brand-logo{height:42px;}}
 .brand-text{font-family:'Oswald',sans-serif;line-height:1.15;}
 .brand-text b{display:block;font-size:1.58rem;letter-spacing:.03em;color:var(--ink);}
 .brand-text small{font-family:'JetBrains Mono',monospace;font-size:.9rem;letter-spacing:.1em;color:var(--brass);text-transform:uppercase;}
@@ -384,8 +387,7 @@ table.data-table td a:hover{color:var(--water);text-decoration:underline;}
   <input type="checkbox" id="nav-toggle" class="nav-toggle">
   <div class="navbar">
     <a class="brand" href="index.html">
-      <span class="brand-mark"><span>DTL</span></span>
-      <span class="brand-text"><b>Dependable Turbines</b><small>Est. 1978 &middot; Surrey, BC</small></span>
+      <img class="brand-logo" src="images/dtl-logo.gif" alt="Dependable Turbines Ltd." width="1024" height="289">
     </a>
     <nav class="links">
       <a href="index.html" >Home</a>
@@ -493,8 +495,7 @@ table.data-table td a:hover{color:var(--water);text-decoration:underline;}
   <div class="wrap">
     <div>
       <span class="brand" style="margin-bottom:14px;display:flex;">
-        <span class="brand-mark"><span>DTL</span></span>
-        <span class="brand-text"><b>Dependable Turbines</b><small>Micro &amp; Small Hydro</small></span>
+        <img class="brand-logo brand-logo-foot" src="images/dtl-logo.gif" alt="Dependable Turbines Ltd." width="1024" height="289">
       </span>
       <p style="max-width:280px;">Custom&#8209;built hydro turbines from 1 to 10,000 kW, with electronic governors and overspeed protection, installed worldwide since 1978.</p>
     </div>
